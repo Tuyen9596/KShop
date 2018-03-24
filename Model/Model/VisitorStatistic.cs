@@ -8,6 +8,7 @@ namespace TeduShop.Model.Model
     public class VisitorStatistic
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ID { set; get; }
 
         [Required]

@@ -54,6 +54,10 @@
     <Compile Include="Migrations\201803231658069_FirstMigration.Designer.cs">
       <DependentUpon>201803231658069_FirstMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803231731476_adduser.cs" />
+    <Compile Include="Migrations\201803231731476_adduser.Designer.cs">
+      <DependentUpon>201803231731476_adduser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ContactDetail.cs" />
     <Compile Include="Model\Error.cs" />
@@ -73,6 +77,7 @@
     <Compile Include="Model\SupportOnline.cs" />
     <Compile Include="Model\SystemConfig.cs" />
     <Compile Include="Model\Tag.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\VisitorStatistic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,6 +88,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803231658069_FirstMigration.resx">
       <DependentUpon>201803231658069_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803231731476_adduser.resx">
+      <DependentUpon>201803231731476_adduser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
