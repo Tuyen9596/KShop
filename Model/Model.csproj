@@ -41,6 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,49 +51,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KShopDbContext.cs" />
-    <Compile Include="Migrations\201803231658069_FirstMigration.cs" />
-    <Compile Include="Migrations\201803231658069_FirstMigration.Designer.cs">
-      <DependentUpon>201803231658069_FirstMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803231731476_adduser.cs" />
-    <Compile Include="Migrations\201803231731476_adduser.Designer.cs">
-      <DependentUpon>201803231731476_adduser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\ContactDetail.cs" />
-    <Compile Include="Model\Error.cs" />
-    <Compile Include="Model\Footer.cs" />
-    <Compile Include="Model\Menu.cs" />
-    <Compile Include="Model\MenuGroup.cs" />
-    <Compile Include="Model\Order.cs" />
-    <Compile Include="Model\OrderDetail.cs" />
-    <Compile Include="Model\Page.cs" />
-    <Compile Include="Model\Post.cs" />
-    <Compile Include="Model\PostCategory.cs" />
-    <Compile Include="Model\PostTag.cs" />
-    <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\ProductCategory.cs" />
-    <Compile Include="Model\ProductTag.cs" />
-    <Compile Include="Model\Slide.cs" />
-    <Compile Include="Model\SupportOnline.cs" />
-    <Compile Include="Model\SystemConfig.cs" />
-    <Compile Include="Model\Tag.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="Model\VisitorStatistic.cs" />
+    <Compile Include="DAO\UserDao.cs" />
+    <Compile Include="EF\About.cs" />
+    <Compile Include="EF\Category.cs" />
+    <Compile Include="EF\Contact.cs" />
+    <Compile Include="EF\Content.cs" />
+    <Compile Include="EF\ContentTag.cs" />
+    <Compile Include="EF\Credential.cs" />
+    <Compile Include="EF\Feedback.cs" />
+    <Compile Include="EF\Footer.cs" />
+    <Compile Include="EF\K-TShop.cs" />
+    <Compile Include="EF\Language.cs" />
+    <Compile Include="EF\Menu.cs" />
+    <Compile Include="EF\MenuType.cs" />
+    <Compile Include="EF\Order.cs" />
+    <Compile Include="EF\OrderDetail.cs" />
+    <Compile Include="EF\Product.cs" />
+    <Compile Include="EF\ProductCategory.cs" />
+    <Compile Include="EF\Role.cs" />
+    <Compile Include="EF\Slide.cs" />
+    <Compile Include="EF\sysdiagrams.cs" />
+    <Compile Include="EF\SystemConfig.cs" />
+    <Compile Include="EF\Tag.cs" />
+    <Compile Include="EF\User.cs" />
+    <Compile Include="EF\UserGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803231658069_FirstMigration.resx">
-      <DependentUpon>201803231658069_FirstMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803231731476_adduser.resx">
-      <DependentUpon>201803231731476_adduser.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
