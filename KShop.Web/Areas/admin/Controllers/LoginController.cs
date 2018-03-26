@@ -12,7 +12,11 @@ namespace KShop.Web.Areas.admin.Controllers
         {
             return View();
         }
-
+        public ActionResult Logout()
+        {
+            Session["User_Login"] = null;
+            return View("Index");
+        }
         public ActionResult Login(LoginModel loginModel)
         {
             if (ModelState.IsValid)

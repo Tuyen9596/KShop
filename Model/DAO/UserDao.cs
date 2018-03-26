@@ -24,6 +24,10 @@ namespace Model.DAO
         {
             return db.User.SingleOrDefault(x => x.UserName == username && x.Password == password);
         }
+        public IEnumerable<User> GetAll()
+        {
+            return db.User.ToList();
+        }
         public int Login(string username,string passWord)
         {
             var result = db.User.SingleOrDefault(x => x.UserName == username );
@@ -39,5 +43,18 @@ namespace Model.DAO
                 }
             }
         }
+        public bool Delete(int id)
+        {
+            var entity = db.User.SingleOrDefault(x => x.ID == id);
+            if (entity == null) return false;
+            else
+            {
+                db.User.Remove(entity);
+                db.SaveChangesAsync();
+                return true;
+            }
+        }
+       
+        
     }
 }
