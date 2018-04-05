@@ -1,34 +1,71 @@
 ﻿@using Model.EF;
-@model IEnumerable<User>
+@using PagedList.Mvc;
+@model PagedList.IPagedList<User>
+
 
 @{
     ViewBag.Title = "ListUser";
     Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
 }
-@{
-    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
+@using (Ajax.BeginForm("searchUserPartial", new AjaxOptions { UpdateTargetId = "KQTimKiem", InsertionMode = InsertionMode.Replace }))
+{
+    <div id="search" style="margin-left:300px" class="row form-group">
+        <div class="col-md-4">
+            @Html.TextBox("sTuKhoa", "", new { @class = "form-control ", placeholder = "Nhập từ khóa...", value = @ViewBag.stringSearch })
+         </div>
+        <div class="col-md-4">
+            <input type="submit" id="btnTimKiem" class="btn btn-success " value="Tìm Kiếm" />
+        </div>
+    </div>
 }
-<h2 class="label-info">Danh Sách User</h2>
-@grid.GetHtml(
-    tableStyle: "table table-bordered",
-    headerStyle: "gridHead",
-    footerStyle: "gridFooter",
+<hr />
+<h2  style="margin-left:400px;">Danh Sách User</h2>
+<div id="KQTimKiem">
 
-    rowStyle: "gridRow",
-    alternatingRowStyle: "gridAltRow",
-    columns: grid.Columns(
-        grid.Column("ID", "ID"),
-        grid.Column("UserName", "UserName"),
-        grid.Column("Name", "Name"),
-        grid.Column("Email", "Email"),
-        grid.Column("Name", "Name"),
-        grid.Column("Phone", "Phone Number"),
-        grid.Column(format: p => @Html.ActionLink("Chinh Sửa", "Edit", new { @class= "btn btn-success", ID = p.ID })),
-        grid.Column(format: p => @Html.ActionLink("Xóa ", "Delete", new { @class = "fa fa-fw fa-sign-out", ID = p.ID }))
-        )
-)
-<style>
-    .label-info{
-        margin-left:400px;
-    }
-</style>
+    <table  class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>User Name</td>
+                <td>Email</td>
+                <td>Full Name</td>
+                <td>Number Phone</td>
+                <td>Status</td>
+                <td>Update</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        @{ 
+            var active = "<label class=\"label label-success\">Active</label>";
+            var noactive = "<label class=\"label label-danger\">No-Active</label>";
+        }
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td class="col-mid-2">@item.ID</td>
+                <td class="col-mid-2">@item.Name</td>
+                <td class="col-mid-2">@item.Email</td>
+                <td class="col-mid-2">@item.UserName</td>
+                <td class="col-mid-2">@item.Phone</td>
+                <td class="col-mid-2"><a href=@Url.Action("ChangeStatus","User",new { id=item.ID}) class="btn-active" data-id="@item.ID">@(item.Status ? Html.Raw(active) : Html.Raw(noactive)) </a></td>
+                <td> @Html.ActionLink("Update", "Update", "User", new { ID = item.ID }, new { @class = "btn btn-success" })</td>
+                
+                <td>
+                    @Ajax.ActionLink("Delete ", "Delete", "User", new { ID = item.ID, @class = "nav-item" },
+                     new AjaxOptions
+                     {
+                         Confirm = "Do you want delete ???",
+                         OnSuccess = "$('#" + item.ID + "').parents().css('border','1px solid red')",
+                         HttpMethod = "Delete"
+                     })
+                </td>
+            </tr>
+        }
+    </table>
+    <label class="label label-success">Active</label>  
+      <div class="clearfix"></div>
+</div>
+<div class="dlink" style="margin-left:500px">
+    Trang :@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("ListUser", new { @sTuKhoa = ViewBag.TuKhoa, page = page }))
+</div>

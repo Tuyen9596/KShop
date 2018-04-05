@@ -1,0 +1,42 @@
+﻿@using Model.EF;
+@model IEnumerable<User>
+<table style="border:2px solid ;border-color:blue;" class="table table-bordered table-striped">
+    <tr>
+        <td>ID</td>
+        <td>User Name</td>
+        <td>Email</td>
+        <td>Full Name</td>
+        <td>Number Phone</td>
+        <td>Status</td>
+        <td>Update</td>
+        <td>Delete</td>
+    </tr>
+    @{
+        var active = "<label class=\"label label-success\">Active</label>";
+        var noactive = "<label class=\"label label-danger\">No-Active</label>";
+    }
+    @foreach (var item in Model)
+            {
+        <tr>
+            <td class="col-mid-2">@item.ID</td>
+            <td class="col-mid-2">@item.Name</td>
+            <td class="col-mid-2">@item.Email</td>
+            <td class="col-mid-2">@item.UserName</td>
+            <td class="col-mid-2">@item.Phone</td>
+            <td class="col-mid-2"><a href=@Url.Action("ChangeStatus","User",new { id=item.ID}) class="btn-active" data-id="@item.ID">@(item.Status ? Html.Raw(active) : Html.Raw(noactive)) </a></td>
+            <td> @Html.ActionLink("Update", "Update", "User", new { ID = item.ID }, new { @class = "btn btn-success" })</td>
+
+            <td>
+                @Ajax.ActionLink("Delete ", "Delete", "User", new { ID = item.ID, @class = "nav-item" },
+                     new AjaxOptions
+                     {
+                         Confirm = "Do you want delete ???",
+                         OnSuccess = "$('#" + item.ID + "').parents().css('border','1px solid red')",
+                         HttpMethod = "Delete"
+                     })
+            </td>
+        </tr>
+    }
+</table>
+
+

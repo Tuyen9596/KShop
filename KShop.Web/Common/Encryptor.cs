@@ -7,6 +7,7 @@ namespace KShop.Web.Common
     {
         public static string MD5Hash(string text)
         {
+            if (text == null) { return null; }
             MD5 md5 = new MD5CryptoServiceProvider();
 
             //compute hash from the bytes of text
