@@ -69,10 +69,18 @@ namespace KShop.Web.Areas.admin.Controllers
             return View();        
         }
         [OverrideAuthentication]
-        public ActionResult ChangeStatus(long id)
+        //public ActionResult ChangeStatus(long id)
+        //{
+        //    var result = new UserDao().ChangeStatus(id);
+        //    return RedirectToAction("ListUser");
+        //}
+        [HttpPost]
+        public JsonResult ChangeStatus(long id)
         {
             var result = new UserDao().ChangeStatus(id);
-            return RedirectToAction("ListUser");
+            return Json(new {
+                status=result
+            });
         }
     }
 }

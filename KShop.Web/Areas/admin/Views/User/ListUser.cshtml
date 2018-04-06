@@ -7,6 +7,8 @@
     ViewBag.Title = "ListUser";
     Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
 }
+<script src="~/Assets/admin/js/controller/userController.js"></script>
+<!-- Latest compiled and minified CSS -->
 @using (Ajax.BeginForm("searchUserPartial", new AjaxOptions { UpdateTargetId = "KQTimKiem", InsertionMode = InsertionMode.Replace }))
 {
     <div id="search" style="margin-left:300px" class="row form-group">
@@ -19,6 +21,25 @@
     </div>
 }
 <hr />
+@*<script>
+    $(document).ready(function () {
+        $('.btn-active').click(function () {
+            var id = $(this).data('id');
+            $.ajax({
+                url: '@Url.Action("ChangeStatus", "User")',
+                data: { id: id },
+                dataType: "json",
+                type: "POST",
+                success: function (response) {
+                    console.log(response);
+                    if (response.Status == true) {
+                        $(this).text('Active')
+                    } else $(this).text('No-Active')
+                }
+            });
+        });
+    });
+</script>*@
 <h2  style="margin-left:400px;">Danh Sách User</h2>
 <div id="KQTimKiem">
 
@@ -47,11 +68,11 @@
                 <td class="col-mid-2">@item.Email</td>
                 <td class="col-mid-2">@item.UserName</td>
                 <td class="col-mid-2">@item.Phone</td>
-                <td class="col-mid-2"><a href=@Url.Action("ChangeStatus","User",new { id=item.ID}) class="btn-active" data-id="@item.ID">@(item.Status ? Html.Raw(active) : Html.Raw(noactive)) </a></td>
+                <td class="col-mid-2"><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Active" : "No - Active") </a></td>
                 <td> @Html.ActionLink("Update", "Update", "User", new { ID = item.ID }, new { @class = "btn btn-success" })</td>
                 
-                <td>
-                    @Ajax.ActionLink("Delete ", "Delete", "User", new { ID = item.ID, @class = "nav-item" },
+                <td class="label label-danger" style="">
+                    @Ajax.ActionLink("Delete", "Delete", "User", new { ID = item.ID, @class = "nav-item" },
                      new AjaxOptions
                      {
                          Confirm = "Do you want delete ???",
@@ -69,3 +90,4 @@
     Trang :@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
     @Html.PagedListPager(Model, page => Url.Action("ListUser", new { @sTuKhoa = ViewBag.TuKhoa, page = page }))
 </div>
+<script src="~/Assets/admin/js/controller/userController.js"></script>

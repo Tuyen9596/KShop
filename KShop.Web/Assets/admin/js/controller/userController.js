@@ -1,24 +1,27 @@
 ﻿/// <reference path="E:\GitHub\Project Visual 2012\C #\ASP.NET\KShop_Web\KShop.Web\Content/Common/js/jquery-3.3.1.js" />
 var user = {
     init: function () {
-
+        user.registerEvents();
     },
-    rehisterEvents: function () {
+    registerEvents: function () {
         $('.btn-active').off('click').on('click', function (e) {
             e.preventDefault();
-            var id = $(this).data('ID');
+            var btn = $(this);
+            var id = btn.data('id');
             $.ajax({
-                url: "/User/ChangeStatus",
+                url:"/admin/User/ChangeStatus",
                 data: { id: id },
-                type: "json",
-                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                type:"POST",
                 success: function (response) {
                     console.log(response);
                     if (response.Status == true) {
-                        $(this).text('Active')
-                    } else $(this).text('No-Active')
+                        btn.text('Active')
+                    } else
+                        btn.text('No-Active')
                 }
             });
         });
     }
 }
+user.init();

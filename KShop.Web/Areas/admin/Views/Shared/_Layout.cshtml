@@ -10,6 +10,7 @@
     <title>K_TShop</title>
     <!-- Bootstrap core CSS-->
     <link href="~/Assets/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Custom fonts for this template-->
     <link href="~/Assets/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Page level plugin CSS-->
@@ -21,10 +22,9 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Content/Common/js/plugins/ckeditor/ckeditor.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">*@
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">*@
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation-->
@@ -146,6 +146,7 @@
         </div>
     </nav>
     <div class="content-wrapper">
+        <div class="alert-success"> Success</div>
       @RenderBody()
         <!-- /.container-fluid-->
         <!-- /.content-wrapper-->
@@ -183,15 +184,17 @@
         <script src="~/Assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
         <script src="~/Assets/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+        @*<script src="~/Assets/admin/vendor/chart.js/Chart.js"></script>*@
         <!-- Page level plugin JavaScript-->
-        <script src="~/Assets/admin/vendor/chart.js/Chart.min.js"></script>
+        @*<script src="~/Assets/admin/vendor/chart.js/Chart.min.js"></script>*@
         <script src="~/Assets/admin/vendor/datatables/jquery.dataTables.js"></script>
         <script src="~/Assets/admin/vendor/datatables/dataTables.bootstrap4.js"></script>
         <!-- Custom scripts for all pages-->
         <script src="~/Assets/admin/js/sb-admin.min.js"></script>
         <!-- Custom scripts for this page-->
         <script src="~/Assets/admin/js/sb-admin-datatables.min.js"></script>
-        <script src="~/Assets/admin/js/sb-admin-charts.min.js"></script>
+        @*<script src="~/Assets/admin/js/sb-admin-charts.min.js"></script>*@
+        @*<script src="~/Assets/admin/vendor/chart.js/Chart.min.js"></script>*@
     </div>
 </body>
 </html>
