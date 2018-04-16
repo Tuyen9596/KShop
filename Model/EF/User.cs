@@ -8,36 +8,38 @@
     [Table("User")]
     public partial class User
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long ID { get; set; }
 
         [StringLength(50)]
-      //  [Required(ErrorMessage = "{0} không được để trống")]
+        [Required(ErrorMessage = "{0} không được để trống")]
         public string UserName { get; set; }
 
         [StringLength(32)]
-     //   [Required(ErrorMessage = "{0} không được để trống")]
+         [Required(ErrorMessage = "{0} không được để trống")]
         public string Password { get; set; }
 
         [StringLength(20)]
         public string GroupID { get; set; }
 
         [StringLength(50)]
-     //   [Required(ErrorMessage = "{0} không được để trống")]
+        [Required(ErrorMessage = "{0} không được để trống")]
         public string Name { get; set; }
 
         [StringLength(50)]
-     //   [Required(ErrorMessage = "{0} không được để trống")]
+        [Required(ErrorMessage = "{0} không được để trống")]
         [DisplayName("Address")]
         public string Address { get; set; }
 
         [StringLength(50)]
         [DisplayName("Email")]
-    //    [Required(ErrorMessage = "{0} không được để trống")]
+        [Required(ErrorMessage = "{0} không được để trống")]
         [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", ErrorMessage = "Email khônghợp lệ!")]
         public string Email { get; set; }
 
         [StringLength(50)]
-     //   [Required(ErrorMessage = "{0} không được để trống")]
+         [Required(ErrorMessage = "{0} không được để trống")]
         public string Phone { get; set; }
 
         public int? ProvinceID { get; set; }

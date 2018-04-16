@@ -7,24 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>K_TShop</title>
+    <title>SB Admin - Start Bootstrap Template</title>
     <!-- Bootstrap core CSS-->
     <link href="~/Assets/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Custom fonts for this template-->
     <link href="~/Assets/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Page level plugin CSS-->
     <link href="~/Assets/admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="~/Assets/admin/css/sb-admin.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-    <script src="~/Scripts/jquery-3.3.1.js"></script>
-    <script src="~/Content/Common/js/plugins/ckeditor/ckeditor.js"></script>
-    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">*@
-    <!-- Optional theme -->
-    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">*@
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation-->
@@ -146,7 +137,10 @@
         </div>
     </nav>
     <div class="content-wrapper">
-        <div class="alert-success"> Success</div>
+        @if (TempData["AlertMessage"] != null)
+        {       
+             <div class="alert @TempData["AlertType"]  hide" id="AlertBox"> @TempData["AlertMessage"] </div>
+        }
       @RenderBody()
         <!-- /.container-fluid-->
         <!-- /.content-wrapper-->
@@ -190,7 +184,7 @@
         <script src="~/Assets/admin/vendor/datatables/jquery.dataTables.js"></script>
         <script src="~/Assets/admin/vendor/datatables/dataTables.bootstrap4.js"></script>
         <!-- Custom scripts for all pages-->
-        <script src="~/Assets/admin/js/sb-admin.min.js"></script>
+        <script src="~/Assets/admin/js/sb-admin.js"></script>
         <!-- Custom scripts for this page-->
         <script src="~/Assets/admin/js/sb-admin-datatables.min.js"></script>
         @*<script src="~/Assets/admin/js/sb-admin-charts.min.js"></script>*@

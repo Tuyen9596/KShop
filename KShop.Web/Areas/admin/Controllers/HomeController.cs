@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace KShop.Web.Areas.admin.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
         // GET: admin/Home
         public ActionResult Index()

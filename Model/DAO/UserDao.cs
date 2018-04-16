@@ -1,4 +1,5 @@
 ﻿using Model.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,11 +14,18 @@ namespace Model.DAO
             db = new K_TShop();
         }
 
-        public long Insert(User entity)
+        public bool Insert(User entity)
         {
-            db.User.Add(entity);
-            db.SaveChanges();
-            return entity.ID;
+            try
+            {
+                db.User.Add(entity);
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
         }
 
         public User Get(string username, string password)

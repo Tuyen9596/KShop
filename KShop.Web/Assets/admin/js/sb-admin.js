@@ -1,4 +1,6 @@
-(function($) {
+(function ($) {
+    $('#AlertBox').removeClass('hide');
+    $('#AlertBox').delay(10000).slideUp(5000);
   "use strict"; // Start of use strict
   // Configure tooltips for collapsed side navigation
   $('.navbar-sidenav [data-toggle="tooltip"]').tooltip({

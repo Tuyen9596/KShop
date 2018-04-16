@@ -1,0 +1,113 @@
+﻿@model PagedList.IPagedList<Product>
+@using Model.EF;
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<!-- Latest compiled and minified CSS -->
+@using (Ajax.BeginForm("searchProductPartial", new AjaxOptions { UpdateTargetId = "KQTimKiem", InsertionMode = InsertionMode.Replace }))
+{
+    <div id="search" style="margin-left:300px" class="row form-group">
+        <div class="col-md-4">
+            @Html.TextBox("sTuKhoa", "", new { @class = "form-control ", placeholder = "Nhập từ khóa...", value = @ViewBag.stringSearch, @id = "txtsearch" })
+        </div>
+        <div class="col-md-4">
+            <input type="submit" id="btnTimKiem" class="btn btn-success " value="Tìm Kiếm" />
+        </div>
+    </div>
+}
+<div id="KQTimKiem">
+    <table class="table table-bordered table-striped table-hover">
+        <thead style="color:darkblue; background-color:aqua">
+            <tr>
+                <td>ID</td>
+                <td>Product Name</td>
+                <td>Image</td>
+                <td>Price</td>
+                <td>PromotionPrice</td>
+                <td>IncludeVAT</td>
+                <td>Quatity</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        @{
+    var active = "<label class=\"label label-success\">Yes</label>";
+    var noactive = "<label class=\"label label-danger\">No</label>";
+        }
+
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td class="col-mid-2">@item.ID</td>
+                <td class="col-mid-2">@item.Name</td>
+                <td class="col-mid-2"><img src=@item.Image alt="No Image" height="100" width="100" /></td>
+                <td class="col-mid-2">@item.Price</td>
+                <td class="col-mid-2">@item.PromotionPrice</td>
+                <td class="col-mid-2"><a href="#" class="btn-active" data-id="@item.ID">@(item.IncludedVAT == false ? Html.Raw(active) : Html.Raw(noactive)) </a></td>
+                <td class="col-mid-2">@item.Quantity</td>
+                <td> @Html.ActionLink("Detail", "Detail", "Product", new { ID = item.ID }, new { @class = "btn btn-info btn-sm" })</td>
+
+                <td class="btn-sm" style="">
+                    @Html.ActionLink("Update", "Update", "User", new { ID = item.ID }, new { @class = "btn btn-success btn-primary btn-sm" }) ||
+                @Ajax.ActionLink("Delete", "Delete", "User", new { ID = item.ID },
+                     new AjaxOptions
+                     {
+                         Confirm = "Do you want delete ???",
+                         OnSuccess = "$('#" + item.ID + "').parents().css('border','1px solid red')",
+                         HttpMethod = "Delete"
+                     }, new { @class = "btn btn-danger btn-primary btn-sm" })
+            </td>
+        </tr>
+        }
+    </table>
+    <div class="clearfix"></div>
+</div>
+<div class="dlink" style="margin-left:500px">
+    Trang :@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { @sTuKhoa = ViewBag.TuKhoa, page = page }))
+</div>
+<script src="~/Content/jquery-ui.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#txtsearch').autocomplete({
+
+            source: function (request, response) {
+
+                $.ajax({
+
+                    type: "POST",
+
+                    contentType: "application/json; charset=utf-8",
+
+                    url:'@Url.Action("GetList","Product")',
+
+                    data: "{'namePrefix':'" + $("#txtsearch").val() + "'}",
+
+                    dataType: "json",
+
+                    success: function (data) {
+
+                        response(data.d)
+
+                    },
+                    error: function (response) {
+
+                        alert("Error" + res.responseText);
+                    }
+               });
+            }
+       });
+    });
+
+</script>

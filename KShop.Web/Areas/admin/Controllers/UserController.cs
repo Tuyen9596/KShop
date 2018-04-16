@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace KShop.Web.Areas.admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController :Controller
     {
         // GET: admin/User
         public ActionResult ListUser(string sTuKhoa, int? page)
@@ -68,7 +68,7 @@ namespace KShop.Web.Areas.admin.Controllers
             }
             return View();        
         }
-        [OverrideAuthentication]
+       // [OverrideAuthentication]
         //public ActionResult ChangeStatus(long id)
         //{
         //    var result = new UserDao().ChangeStatus(id);
@@ -82,5 +82,49 @@ namespace KShop.Web.Areas.admin.Controllers
                 status=result
             });
         }
+        [HttpPost]
+        public ActionResult CreateUser(User user)
+        {
+            if (user != null)
+            {
+                var dao = new UserDao();
+                user.Password = Encryptor.MD5Hash(user.Password);
+                if (dao.Insert(user))
+                {
+                    SetAlert("Insert Success", "success");
+                    return RedirectToAction("ListUser");
+                }
+                else
+                {
+                    SetAlert("Insert Error!! Check Again Infomation", "error");
+                    return View();
+                }
+           
+            }
+            return View();
+        }
+        [HttpGet]
+        public ActionResult CreateUser()
+        {
+            return View();
+        }
+        [HttpPost]
+        protected void SetAlert(string message, string type)
+        {
+            TempData["AlertMessage"] = message;
+            if (type == "success")
+            {
+                TempData["AlertType"] = "alert-success";
+            }
+            else if (type == "warning")
+            {
+                TempData["AlertType"] = "alert-warning";
+            }
+            else if (type == "error")
+            {
+                TempData["AlertType"] = "alert-danger";
+            }
+        }
+
     }
 }

@@ -4,7 +4,7 @@ var user = {
         user.registerEvents();
     },
     registerEvents: function () {
-        $('.btn-active').off('click').on('click', function (e) {
+        $('.btn-active').off('click').on('click',(function (e) {
             e.preventDefault();
             var btn = $(this);
             var id = btn.data('id');
@@ -12,16 +12,21 @@ var user = {
                 url:"/admin/User/ChangeStatus",
                 data: { id: id },
                 dataType: "json",
-                type:"POST",
+                type:"Post",
                 success: function (response) {
                     console.log(response);
-                    if (response.Status == true) {
-                        btn.text('Active')
-                    } else
-                        btn.text('No-Active')
+                    if (response.status) {
+                        btn.html("<label class=\"label label-success\">Active</label>");
+                    }
+                    else {
+                        btn.html( "<label class=\"label label-danger\">No-Active</label>");
+                    }
+                      
                 }
             });
-        });
+        }));
+
+
     }
 }
 user.init();

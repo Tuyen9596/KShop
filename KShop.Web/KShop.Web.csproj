@@ -40,6 +40,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.18.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
@@ -168,10 +172,76 @@
     <Content Include="Assets\admin\vendor\jquery\jquery.min.js" />
     <Content Include="Assets\admin\vendor\jquery\jquery.slim.js" />
     <Content Include="Assets\admin\vendor\jquery\jquery.slim.min.js" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Assets\clients\css\flexslider.css" />
+    <Content Include="Assets\clients\css\menu.css" />
+    <Content Include="Assets\clients\css\style.css" />
+    <Content Include="Assets\clients\images\1.jpg" />
+    <Content Include="Assets\clients\images\2.jpg" />
+    <Content Include="Assets\clients\images\3.jpg" />
+    <Content Include="Assets\clients\images\4.jpg" />
+    <Content Include="Assets\clients\images\about-img.jpg" />
+    <Content Include="Assets\clients\images\arrows.png" />
+    <Content Include="Assets\clients\images\arrow_up.png" />
+    <Content Include="Assets\clients\images\au.png" />
+    <Content Include="Assets\clients\images\bm.png" />
+    <Content Include="Assets\clients\images\body_bg3.jpg" />
+    <Content Include="Assets\clients\images\button-bg.png" />
+    <Content Include="Assets\clients\images\cart.jpg" />
+    <Content Include="Assets\clients\images\ck.png" />
+    <Content Include="Assets\clients\images\contact.png" />
+    <Content Include="Assets\clients\images\cu.png" />
+    <Content Include="Assets\clients\images\discount-img.png" />
+    <Content Include="Assets\clients\images\down-arrow.png" />
+    <Content Include="Assets\clients\images\drop_arrow-hover.png" />
+    <Content Include="Assets\clients\images\drop_arrow.png" />
+    <Content Include="Assets\clients\images\facebook.png" />
+    <Content Include="Assets\clients\images\feature-pic1.png" />
+    <Content Include="Assets\clients\images\feature-pic2.jpg" />
+    <Content Include="Assets\clients\images\feature-pic3.jpg" />
+    <Content Include="Assets\clients\images\feature-pic4.png" />
+    <Content Include="Assets\clients\images\footer-bg.gif" />
+    <Content Include="Assets\clients\images\gb.png" />
+    <Content Include="Assets\clients\images\gradient_light-1.png" />
+    <Content Include="Assets\clients\images\header_arrow.png" />
+    <Content Include="Assets\clients\images\header_cart.png" />
+    <Content Include="Assets\clients\images\icon-1.png" />
+    <Content Include="Assets\clients\images\icon-2.png" />
+    <Content Include="Assets\clients\images\icon-3.png" />
+    <Content Include="Assets\clients\images\icon-4.png" />
+    <Content Include="Assets\clients\images\large-button-overlay.png" />
+    <Content Include="Assets\clients\images\linkedin.png" />
+    <Content Include="Assets\clients\images\login.png" />
+    <Content Include="Assets\clients\images\logo.png" />
+    <Content Include="Assets\clients\images\new-pic1.jpg" />
+    <Content Include="Assets\clients\images\new-pic2.jpg" />
+    <Content Include="Assets\clients\images\new-pic3.jpg" />
+    <Content Include="Assets\clients\images\pic1.png" />
+    <Content Include="Assets\clients\images\pic2.jpg" />
+    <Content Include="Assets\clients\images\pic3.jpg" />
+    <Content Include="Assets\clients\images\pic3.png" />
+    <Content Include="Assets\clients\images\pic4.png" />
+    <Content Include="Assets\clients\images\preview-img.jpg" />
+    <Content Include="Assets\clients\images\preview-img3.jpg" />
+    <Content Include="Assets\clients\images\preview-img4.jpg" />
+    <Content Include="Assets\clients\images\preview-img5.jpg" />
+    <Content Include="Assets\clients\images\preview-img6.jpg" />
+    <Content Include="Assets\clients\images\rating.png" />
+    <Content Include="Assets\clients\images\tag.png" />
+    <Content Include="Assets\clients\images\team1.jpg" />
+    <Content Include="Assets\clients\images\team2.jpg" />
+    <Content Include="Assets\clients\images\team3.jpg" />
+    <Content Include="Assets\clients\images\team4.jpg" />
+    <Content Include="Assets\clients\images\twitter.png" />
+    <Content Include="Assets\clients\images\youtube.png" />
+    <Content Include="Assets\clients\js\easing.js" />
+    <Content Include="Assets\clients\js\jquery-1.7.2.min.js" />
+    <Content Include="Assets\clients\js\jquery.easing.js" />
+    <Content Include="Assets\clients\js\jquery.flexslider.js" />
+    <Content Include="Assets\clients\js\jquery.min.js" />
+    <Content Include="Assets\clients\js\menu-2.js" />
+    <Content Include="Assets\clients\js\menu.js" />
+    <Content Include="Assets\clients\js\move-top.js" />
+    <Content Include="Assets\clients\js\script.js" />
     <Content Include="Content\Common\css\bootstrap.css" />
     <Content Include="Content\Common\css\flexslider.css" />
     <Content Include="Content\Common\css\font-awesome.css" />
@@ -225,6 +295,7 @@
     <Content Include="Content\Common\images\tm2.jpg" />
     <Content Include="Content\Common\images\tm3.jpg" />
     <Content Include="Content\Common\images\tm4.jpg" />
+    <Content Include="Content\Common\jquery.js" />
     <Content Include="Content\Common\js\bootstrap.js" />
     <Content Include="Content\Common\js\controls.js" />
     <Content Include="Content\Common\js\easing.js" />
@@ -396,6 +467,14 @@
     <Content Include="Content\Common\js\plugins\ckeditor\styles.js" />
     <Content Include="Content\Common\js\rgbSlide.min.js" />
     <Content Include="Content\Common\js\SmoothScroll.min.js" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.js" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery-ui.min.js" />
+    <Content Include="Content\jquery-ui.structure.css" />
+    <Content Include="Content\jquery-ui.structure.min.css" />
+    <Content Include="Content\jquery-ui.theme.css" />
+    <Content Include="Content\jquery-ui.theme.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
   </ItemGroup>
@@ -409,6 +488,7 @@
     <Compile Include="Areas\admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\admin\Controllers\UserController.cs" />
     <Compile Include="Areas\admin\Models\LoginModel.cs" />
     <Compile Include="Common\Encryptor.cs" />
@@ -430,10 +510,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\Common\js\plugins\ckeditor\CHANGES.md" />
     <Content Include="Content\Common\js\plugins\ckeditor\LICENSE.md" />
     <Content Include="Content\Common\js\plugins\ckeditor\README.md" />
@@ -446,6 +522,10 @@
     <Content Include="Content\Common\js\plugins\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Content\Common\js\plugins\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Areas\admin\Views\User\searchUserPartial.cshtml" />
+    <Content Include="Areas\admin\Views\User\CreateUser.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Detail.cshtml" />
+    <Content Include="Areas\admin\Views\Product\searchProductPartial.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -459,7 +539,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="packages.config" />
-    <Content Include="Share\Layout\HomeLayout.cshtml" />
     <Content Include="Content\Common\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\Common\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\Common\fonts\fontawesome-webfont.woff" />
@@ -544,7 +623,6 @@
     <Content Include="Assets\admin\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="Assets\admin\vendor\jquery\jquery.min.map" />
     <Content Include="Assets\admin\vendor\jquery\jquery.slim.min.map" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Areas\admin\Views\Shared\_LeftMenu.cshtml" />
     <Content Include="Areas\admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\admin\Views\User\Index.cshtml" />
@@ -553,6 +631,9 @@
     <Content Include="Content\Common\js\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Share\Layout\_Layout1.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_MenuPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

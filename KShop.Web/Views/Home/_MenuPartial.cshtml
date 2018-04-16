@@ -1,0 +1,80 @@
+﻿@using Model.EF;
+@model IEnumerable<ProductCategory>
+<div class="h_menu">
+    <a id="touch-menu" class="mobile-menu" href="#">Menu</a>
+    <nav>
+        <ul class="menu list-unstyled">
+            <li><a href="index.html">HOME</a></li>
+            <li class="activate">
+                <a href="#">Products</a>
+                <ul class="sub-menu list-unstyled sub-menu">
+                    <div class="nag-mother-list">
+                        <div class="navg-drop-main">
+                            <div class="nav-drop ">
+                                @foreach (var item in Model)
+                                {
+                                <li><a href="#">@item.Name</a></li>
+                                }
+                            </div>
+                            <div class="clear"> </div>
+                        </div>
+                    </div>
+                </ul>
+            </li>
+
+            @* Top Brand *@
+            <li>
+                <a href="products.html">Top Thương Hiệu</a>
+                <ul class="sub-menu list-unstyled sub-menu2">
+                    <div class="navg-drop-main">
+                        <div class="nav-drop nav-top-brand">
+                            <li><a href="products.html">Product 1</a></li>
+                            <li><a href="products.html">Product 2</a></li>
+                            <li><a href="products.html">Product 3</a></li>
+                            <li><a href="products.html">Product 4</a></li>
+                            <li><a href="products.html">Product 5</a></li>
+                            <li><a href="products.html">Product 6</a></li>
+                        </div>
+                    </div>
+                </ul>
+            </li>
+            <li>
+                <a href="faq.html">Dịch Vụ</a>
+                <ul class="sub-menu list-unstyled sub-menu3">
+                    <div class="navg-drop-main">
+                        <div class="nav-drop">
+                            <li><a href="products.html">Product 4</a></li>
+                            <li><a href="products.html">Product 5</a></li>
+                            <li>
+                                <a href="products.html">Product 6</a>
+
+                            </li>
+                        </div>
+                        <div class="nav-drop">
+                            <li><a href="products.html">Product 4</a></li>
+                            <li><a href="products.html">Product 5</a></li>
+                            <li>
+                                <a href="products.html">Product 6</a>
+                            </li>
+                        </div>
+                        <div class="nav-drop">
+                            <li><a href="products.html">Product 4</a></li>
+                            <li><a href="products.html">Product 5</a></li>
+                            <li><a href="products.html">Product 6</a></li>
+                        </div>
+                        <div class="nav-drop">
+                            <li><a href="products.html">Product 4</a></li>
+                            <li><a href="products.html">Product 5</a></li>
+                            <li><a href="products.html">Product 6</a></li>
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <script src="js/menu.js" type="text/javascript"></script>
+</div>
+
+
+
