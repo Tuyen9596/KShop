@@ -1,4 +1,5 @@
-﻿
+﻿@using Model.EF;
+@model IEnumerable<Product>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Share/Layout/_Layout1.cshtml";
@@ -6,72 +7,45 @@
 @section menu
 {
     @Html.Action("_MenuPartial", "Home")
-    @*@Html.Partial("/Share/Layout/_MenuPartial.cshtml" )*@
 }
-<div class="header_bottom">
-    <div class="header_bottom_left">
-        <div class="section group">
-            <div class="listview_1_of_2 images_1_of_2">
-                <div class="listimg listimg_2_of_1">
-                    <a href="preview.html"> <img src="/assets/clients/images/pic4.png" alt="" /></a>
-                </div>
-                <div class="text list_2_of_1">
-                   
-                    <h2>iphone</h2>
-                    <p>lorem ipsum dolor sit amet sed do eiusmod.</p>
-                    <div class="button"><span><a href="preview.html">add to cart</a></span></div>
-                </div>
-            </div>
-            <div class="listview_1_of_2 images_1_of_2">
-                <div class="listimg listimg_2_of_1">
-                    <a href="preview-5.html"><img src="/assets/clients/images/pic3.png" alt="" / ></a>
-                </div>
-                <div class="text list_2_of_1">
-                    <h2>samsung</h2>
-                    <p>lorem ipsum dolor sit amet, sed do eiusmod.</p>
-                    <div class="button"><span><a href="preview-5.html">add to cart</a></span></div>
+<div class="h menu">
+    <div class="header_bottom">
+        <div class="header_bottom_left">
+            <div class="section group">
+                @foreach (var item in Model)
+            {
+                    <div class="listview_1_of_2 images_1_of_2">
+                        <div class="listimg listimg_2_of_1">
+                            <a href="#"> <img src=@item.Image alt="" width="100" height="100" /></a>
+                        </div>
+                        <div class="text list_2_of_1">
+
+                            <h2>@item.Name</h2>
+                            <p>@item.Status</p>
+                    <div class="button"><span><a href="#">add to cart</a></span></div>
                 </div>
             </div>
+                }
+            </div>
+            <div class="clear"></div>
         </div>
-        <div class="section group">
-            <div class="listview_1_of_2 images_1_of_2">
-                <div class="listimg listimg_2_of_1">
-                    <a href="preview-3.html"> <img src="/assets/clients/images/pic3.jpg" alt="" /></a>
+        <div class="header_bottom_right_images">
+            <!-- flexslider -->
+            <section class="slider">
+                <div class="flexslider">
+                    <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                        <ul class="fa-slideshare">
+                            <li><img src="~/assets/clients/images/1.jpg" alt="" /></li>
+                            <li><img src="~/assets/clients/images/2.jpg" alt="" /></li>
+                            <li><img src="~/assets/clients/images/3.jpg" alt="" /></li>
+                            <li><img src="~/assets/clients/images/4.jpg" alt="" /></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="text list_2_of_1">
-                    <h2>acer</h2>
-                    <p>lorem ipsum dolor sit amet, sed do eiusmod.</p>
-                    <div class="button"><span><a href="preview-3.html">add to cart</a></span></div>
-                </div>
-            </div>
-            <div class="listview_1_of_2 images_1_of_2">
-                <div class="listimg listimg_2_of_1">
-                    <a href="preview-6.html"><img src="/assets/clients/images/pic1.png" alt="" /></a>
-                </div>
-                <div class="text list_2_of_1">
-                    <h2>canon</h2>
-                    <p>lorem ipsum dolor sit amet, sed do eiusmod.</p>
-                    <div class="button"><span><a href="preview-6.html">add to cart</a></span></div>
-                </div>
-            </div>
+            </section>
+            <!-- flexslider -->
         </div>
         <div class="clear"></div>
     </div>
-    <div class="header_bottom_right_images">
-        <!-- flexslider -->
-        <section class="slider">
-            <div class="flexslider">
-                <ul class="slides">
-                    <li><img src="/assets/clients/images/1.jpg" alt="" /></li>
-                    <li><img src="/assets/clients/images/2.jpg" alt="" /></li>
-                    <li><img src="/assets/clients/images/3.jpg" alt="" /></li>
-                    <li><img src="/assets/clients/images/4.jpg" alt="" /></li>
-                </ul>
-            </div>
-        </section>
-        <!-- flexslider -->
-    </div>
-    <div class="clear"></div>
 </div>
-
 
